@@ -1,1 +1,13 @@
-<h1>Home Page</h1>
+<h1>My Parties</h1>
+<div class = "all_parties">
+	<ul>
+		<% @parties.each do |party| %>
+			<li><a href ="/parties/view/<%party.id%>"></a><%= party.name %></li>
+			<li><%= party.adress %></li>
+			<li><%= party.coordinates %></li>
+			<li><%= party.date_time %></li>
+		<% end %>
+	</ul>
+</div>
+
+
