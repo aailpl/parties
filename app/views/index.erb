@@ -1,13 +1,18 @@
-<h1>My Parties</h1>
-<div class = "all_parties">
-	<ul>
-		<% @parties.each do |party| %>
-			<li><a href ="/parties/view/<%party.id%>"></a>Name:<%= party.name %></li>
-			<li>Address:<%= party.adress %></li>
-			<li>Coordinates:<%= party.coordinates %></li>
-			<li>Detaisl:<%= party.date_time %></li>
-		<% end %>
-	</ul>
+<div class="container">
+	<h1>My Parties</h1>
+	<div class="row">
+		<div class = "all_parties">
+			<ul>
+				<% @parties.each do |party| %>
+					<li><a href ="/parties/<%party.id%>">Name:<%= party.name %></a></li>
+					<li>Address:<%= party.adress %></li>
+					<li>Coordinates:<%= party.coordinates %></li>
+					<li>Detaisl:<%= party.date_time %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
 </div>
+
 
 
