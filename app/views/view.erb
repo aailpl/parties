@@ -1,20 +1,10 @@
 <h1>Party view</h1>
 <div class="party-status">
 	<ul>
-		<li>
-			<a href="/view/<%= @party.id %>/edit">Edit</a>
-		</li>
-		<li>
-			"Name: "<%= @party.name %>
-		</li>
-		<li>
-			"Address: "<%= @party.adress %>
-		</li>
-		<li>
-			"Location: "<%= @party.coordinates %>
-		</li>
-		<li>
-			"Date: "<%= @party.date_time %>
-		</li>
+		<li><a href="/<%= @party.id %>/edit">Edit</a></li>
+		<li>"Name: "<%= @party.name %></li>
+		<li>"Address: "<%= @party.adress %></li>
+		<li>"Location: "<%= @party.coordinates %></li>
+		<li>"Date: "<%= @party.date_time %></li>
 	</ul>
 </div>

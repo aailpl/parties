@@ -5,7 +5,7 @@ get '/' do
 end
 
 # show individual post
-get '/view/:id' do
+get '/:id' do
   @party = Party.find(params[:id])
   erb :view
 end
