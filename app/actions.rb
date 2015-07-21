@@ -17,7 +17,7 @@ post '/parties' do
   	name: params[:name],
   	adress: params[:address],
   	coordinates: "#{params[:latitude]}/#{params[:longitude]}",
-  	date_time: DateTime.strptime(params[:date],"%Y-%m-%dT%H:%M")
+  	date_time: params[:date]
   )
   redirect '/'
 end
