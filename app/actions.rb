@@ -17,8 +17,9 @@ post '/parties' do
   	name: params[:name],
   	adress: params[:address],
   	coordinates: "#{params[:latitude]}/#{params[:longitude]}",
-  	date_time: DateTime.strptime(params[:date],"%Y-%m-%dT%H:%M")
+  	date_time: params[:date]
   )
+  redirect '/'
 end
 
 # show individual post
@@ -27,12 +28,18 @@ get '/parties/:id' do
   erb :view
 end
 
+# form to edit a single party
+get '/parties/:id/edit' do
+  
+end
+
 # method to update an existing party, the /:id/edit should point here
 post '/parties/:id/update' do
   
 end
 
-# form to edit a single party
-get '/parties/:id/edit' do
-  
+#method to remove a single party
+get '/parties/:id/remove' do
+  Party.find(params[:id]).destroy		
+  redirect '/'
 end
