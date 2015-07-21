@@ -1,13 +1,24 @@
 <div class="container">
-	<h1>My Parties</h1>
+	<div class="row">
+		<h1>My Parties <a class="btn btn-default" href="/parties/new" role="button">New event</a></h1>
+
+	</div>
+	
 	<div class="row">
 		<div class = "all_parties">
-			<ul>
+			<ul class="list-group">
 				<% @parties.each do |party| %>
-					<li><a href ="/parties/<%party.id%>">Name:<%= party.name %></a></li>
-					<li>Address:<%= party.adress %></li>
-					<li>Coordinates:<%= party.coordinates %></li>
-					<li>Detaisl:<%= party.date_time %></li>
+					<li class="list-group-item">
+						<ul>
+							<li><label>Name:</label><%= party.name %></li>
+							<li><label>Address:</label><%= party.adress %></li>
+							<li><label>Coordinates:</label><%= party.coordinates %></li>
+							<li><label>Details:</label><%= party.date_time %></li>
+							<a href ="/parties/<%= party.id %>"><span class="badge">Details</span></a>
+							<a href ="/parties/<%= party.id %>/edit"><span class="badge">Edit</span></a>
+							<a href ="/parties/<%= party.id %>/remove"><span class="badge">Remove</span></a>
+						</ul>						
+					</li>					
 				<% end %>
 			</ul>
 		</div>
