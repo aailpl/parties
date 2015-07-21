@@ -7,7 +7,7 @@ get '/parties' do
   erb :index
 end
 
-get '/parties' do
+get '/parties/new' do
 	erb :create
 end
 
