@@ -2,6 +2,9 @@
 <div class="party-status">
 	<ul>
 		<li>
+			<a href="/view/<%= @party.id %>/edit">Edit</a>
+		</li>
+		<li>
 			"Name: "<%= @party.name %>
 		</li>
 		<li>
@@ -14,5 +17,4 @@
 			"Date: "<%= @party.date_time %>
 		</li>
 	</ul>
-	<a href="/view/:id/edit">Edit</a>
 </div>
