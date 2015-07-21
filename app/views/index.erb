@@ -4,7 +4,7 @@
 		<div class = "all_parties">
 			<ul>
 				<% @parties.each do |party| %>
-					<li><a href ="/parties/<%party.id%>">Name:<%= party.name %></a></li>
+					<li><a href ="/parties/<%= party.id %>">Name:<%= party.name %></a></li>
 					<li>Address:<%= party.adress %></li>
 					<li>Coordinates:<%= party.coordinates %></li>
 					<li>Detaisl:<%= party.date_time %></li>
