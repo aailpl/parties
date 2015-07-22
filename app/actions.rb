@@ -11,6 +11,17 @@ get '/parties/new' do
 	erb :create
 end
 
+# method to search for a party name and retrieve its results
+get "/search" do 
+	#@party = Party.where name: params[:name]
+	if params[:name] && params[:name] != ""
+		@parties = Party.where("name LIKE ?", "%#{params[:name]}%")
+		erb :index
+	else
+		redirect "/error"
+	end
+end
+
 # method to save a new party, the /new route should point here
 post '/parties' do
   Party.create(
