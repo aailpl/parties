@@ -53,3 +53,16 @@ get '/parties/:id/remove' do
   Party.find(params[:id]).destroy		
   redirect '/'
 end
+
+
+
+post '/parties/:id/attendee' do
+  attendee = Attendee.create(name: params[:name], email: params[:email], party_id: params[:id])
+  redirect "/parties/#{attendee.party_id}"
+end
+
+get '/parties/attendee/:id/remove' do
+  attendee = Attendee.find(params[:id]).destroy
+  redirect "/parties/#{attendee.party_id}"
+end
+

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721092838) do
+ActiveRecord::Schema.define(version: 20150722101133) do
+
+  create_table "attendees", force: :cascade do |t|
+    t.string  "name"
+    t.string  "email"
+    t.integer "party_id"
+  end
+
+  add_index "attendees", ["email", "party_id"], name: "index_attendees_on_email_and_party_id", unique: true
 
   create_table "parties", force: :cascade do |t|
     t.string   "name"
