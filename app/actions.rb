@@ -74,7 +74,22 @@ post '/parties/:id/attendee' do
   redirect "/parties/#{attendee.party_id}"
 end
 
+get '/parties/:id/export' do
+
+	party = Party.find(params[:id])
+	File.open("Party_#{params[:id]}_attendees", 'w') do |file| 
+		file.write("name,email\n")
+		party.attendees.each do |attendee|
+			file.write("#{attendee.name},#{attendee.email}\n") 
+		end
+	end
+	redirect '/'
+end
+
 get '/parties/attendee/:id/remove' do
   attendee = Attendee.find(params[:id]).destroy
   redirect "/parties/#{attendee.party_id}"
 end
+
+
+
