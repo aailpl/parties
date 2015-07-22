@@ -1,3 +1,5 @@
+require "csv"
+
 get '/' do
 	redirect '/parties'
 end
@@ -91,5 +93,12 @@ get '/parties/attendee/:id/remove' do
   redirect "/parties/#{attendee.party_id}"
 end
 
+get '/parties/:id/import' do
+  party = Party.find(params[:id])
 
+  CSV.foreach("attendees.csv", headers: true) do |row|
+    party.attendees.create(row.to_hash)
+  end 
+  redirect "/parties/#{party.id}"
+end
 
