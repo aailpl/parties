@@ -15,11 +15,37 @@
 						<li><label>Address: </label><%= @party.adress %></li>
 						<li><label>Location: </label><%= @party.coordinates %></li>
 						<li><label>Date: </label><%= @party.date_time %></li>
+						<li>
+							<label>Attendees: </label>
+							<ul>
+								<%@party.attendees.each do |attendee|%>
+									<li><label>Name: </label><%=attendee.name%><label> Email:</label> <%=attendee.email%></li>
+									<a href ="/parties/attendee/<%= attendee.id %>/remove"><span class="badge">Remove</span></a>
+								<% end %>
+							</ul>
+						</li>
 					</ul>
 				  </div>
 				</div>		
 			</div>
 		</div>
 		<div class="col-md-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<form action="/parties/<%=@party.id%>/attendee" method="post" class="form-horizontal">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input  type="text" id="name" name="name"  class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input  type="email" id="email" name="email" class="form-control">
+				</div>
+				
+				<div class="text-center"><button class="btn btn-default">Add attendee</button></div>				
+			</form>
+		</div>
+		<div class="col-xs-3"></div>
 	</div>
 </div>
