@@ -3,7 +3,11 @@ get '/' do
 end
 
 get '/parties' do
-  @parties = Party.all
+  if params[:order]
+  	@parties = Party.order(date_time: params[:order].to_s )
+  else
+  	@parties = Party.all
+  end
   erb :index
 end
 
@@ -17,7 +21,7 @@ post '/parties' do
   	name: params[:name],
   	adress: params[:address],
   	coordinates: "#{params[:latitude]}/#{params[:longitude]}",
-  	date_time: params[:date]
+  	date_time: DateTime.strptime(params[:date],'%Y-%m-%dT%H:%M')
   )
   redirect '/'
 end
@@ -53,3 +57,4 @@ get '/parties/:id/remove' do
   Party.find(params[:id]).destroy		
   redirect '/'
 end
+
